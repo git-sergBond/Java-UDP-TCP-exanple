@@ -10,14 +10,12 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
-        try {
-            DatagramSocket socket = new DatagramSocket(6789);
+
+        try (DatagramSocket socket = new DatagramSocket(6789)) {
 
             sendMessage(socket, "hello", "localhost", 6789);
 
             receiveMessage(socket);
-
-            socket.close();
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="untitled" />
+        <module name="udp-2-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="untitled" target="1.8" />
+      <module name="udp-1-send-receive" target="1.8" />
+      <module name="udp-2-server" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
