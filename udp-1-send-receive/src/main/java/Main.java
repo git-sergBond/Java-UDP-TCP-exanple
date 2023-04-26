@@ -38,6 +38,11 @@ public class Main {
         DatagramPacket response = new DatagramPacket(buffer, buffer.length);
         socket.receive(response);
 
-        System.out.println("Response: " + new String(response.getData()));
+        printMessage(response);
+    }
+
+    private static void printMessage(DatagramPacket datagram) {
+        String message = new String(datagram.getData(), 0, datagram.getLength(), StandardCharsets.UTF_8);
+        System.out.println("Message: " + message);
     }
 }

@@ -23,6 +23,8 @@ public class Main {
                 DatagramPacket request = new DatagramPacket(buffer, buffer.length);
                 socket.receive(request);
 
+                printMessage(request);
+
                 DatagramPacket reply = new DatagramPacket(
                         request.getData(),
                         request.getLength(),
@@ -34,5 +36,10 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void printMessage(DatagramPacket datagram) {
+        String message = new String(datagram.getData(), 0, datagram.getLength(), StandardCharsets.UTF_8);
+        System.out.println("Message: " + message);
     }
 }
