@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Java-UDP-TCP-exanple.iml" filepath="$PROJECT_DIR$/.idea/Java-UDP-TCP-exanple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TCP-3-client/TCP-3-client.iml" filepath="$PROJECT_DIR$/TCP-3-client/TCP-3-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TCP-4-server/TCP-4-server.iml" filepath="$PROJECT_DIR$/TCP-4-server/TCP-4-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/udp-2-server/udp-2-server.iml" filepath="$PROJECT_DIR$/udp-2-server/udp-2-server.iml" />
     </modules>
   </component>

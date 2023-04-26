@@ -2,14 +2,14 @@ import java.io.IOException;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 
-public class Main {
+public class UDPClient {
     /**
      * Программа создает сокет,
      * соединяется с сервером (порт 6789), пересылает
      * ему сообщение и ждет ответа.
      * @param args
      */
-    public static void main(String[] args) {
+    public static void UDPClient(String[] args) {
 
         try (DatagramSocket socket = new DatagramSocket(6789)) {
 

@@ -4,7 +4,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
 
-public class Main {
+public class UDPServer {
     /**
      * Программа (сервер) создает сокет и обслуживает запросы клиента.
      *
