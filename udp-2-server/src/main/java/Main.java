@@ -17,7 +17,7 @@ public class Main {
 
         try (DatagramSocket socket = new DatagramSocket(6789)) {
 
-            byte buffer[] = new byte[1000];
+            byte[] buffer = new byte[1000];
 
             while (true) {
                 DatagramPacket request = new DatagramPacket(buffer, buffer.length);
