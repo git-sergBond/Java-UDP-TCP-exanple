@@ -16,9 +16,10 @@ public class UDPClient {
 
     public static void main(String[] args) {
         Sender sender = (String request) -> {
-            //If we run client and server on local machine.
-            //We will face with problem that we can not open same port twice for listening incoming messages to client.
-            //That's why i change 6789 (API.PORT) on 7777.
+            //If we run the client and server on the local machine.
+            //We will face with a problem that we can not open the same port twice
+            //for listening incoming messages to the client.
+            //That's why I change 6789 (API. PORT) on 777.
             try (DatagramSocket socket = new DatagramSocket(7777)) {
                 String host = readHostFromCommandLineArguments(args);
                 sendMessage(socket, request, host, API.PORT);
