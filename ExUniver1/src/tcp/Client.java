@@ -17,7 +17,7 @@ public class Client {
             DataInputStream inputStream = new DataInputStream(socket.getInputStream());
             DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
-            outputStream.writeUTF(GET_CLIENT_BY_ACCOUNT_ID+"2");
+            outputStream.writeUTF(GET_ALL_CLIENTS);
 
             String data = inputStream.readUTF();
             System.out.println("Received: " + data);

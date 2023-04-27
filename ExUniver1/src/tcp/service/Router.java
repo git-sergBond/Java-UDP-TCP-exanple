@@ -10,8 +10,7 @@ public class Router {
 
     public String route (String url) {
         if (API.GET_ALL_CLIENTS.equals(url)) {
-            System.out.println("accountId");
-            return "1";
+            return controller.getAllClients();
         } else if (url.startsWith(API.GET_CLIENT_BY_ACCOUNT_ID)) {
             return controller.getClientByAccountId(url);
         }

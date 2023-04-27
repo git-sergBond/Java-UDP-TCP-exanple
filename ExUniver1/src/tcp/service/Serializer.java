@@ -4,6 +4,23 @@ import model.Client;
 
 public class Serializer {
 
+    public String serialize(Client[] clientArray) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[\n");
+
+        int index = 0;
+        for (Client client : clientArray) {
+            sb.append(serialize(client));
+
+            if (++index != clientArray.length) {
+                sb.append(",\n");
+            }
+        }
+
+        sb.append("\n]");
+        return sb.toString();
+    }
+
     String serialize(Client client) {
         StringBuilder sb = new StringBuilder();
         sb.append("{\n");

@@ -16,6 +16,25 @@ public class Controller {
         this.serializer = serializer;
     }
 
+    public String getAllClients() {
+        Client[] resp;
+        try {
+            resp = clientReposiory.getAllClients();
+        } catch (Exception e) {
+            return Error.ERROR_500 + e.getMessage();
+        }
+
+        if (resp == null) {
+            return Error.ERROR_404;
+        }
+
+        try {
+            return serializer.serialize(resp);
+        } catch (Exception e) {
+            return Error.ERROR_500 + e.getMessage();
+        }
+    }
+
     public String getClientByAccountId(String url) {
         String accountId = url.substring(API.GET_CLIENT_BY_ACCOUNT_ID.length());
         if (accountId.isEmpty()) {
