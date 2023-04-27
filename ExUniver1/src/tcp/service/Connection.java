@@ -10,9 +10,11 @@ public class Connection extends Thread {
     private final DataInputStream in;
     private final DataOutputStream out;
     private final Socket socket;
+    private final Router router;
 
-    public Connection(Socket socket) throws IOException {
+    public Connection(Socket socket, Router router) throws IOException {
         this.socket = socket;
+        this.router = router;
 
         in = new DataInputStream(socket.getInputStream());
         out = new DataOutputStream(socket.getOutputStream());
@@ -23,8 +25,11 @@ public class Connection extends Thread {
     @Override
     public void run() {
         try {
-            String data = in.readUTF();
-            out.writeUTF(data);
+            String request = in.readUTF();
+
+            String response = router.route(request);
+
+            out.writeUTF(response);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
