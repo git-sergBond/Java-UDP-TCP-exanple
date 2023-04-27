@@ -2,6 +2,7 @@ package tcp;
 
 import repository.ClientReposiory;
 import tcp.service.Connection;
+import tcp.service.Controller;
 import tcp.service.Router;
 import tcp.service.Serializer;
 
@@ -27,6 +28,7 @@ public class Server {
     private static Router dependencyInjection() {
         ClientReposiory clientReposiory = new ClientReposiory();
         Serializer serializer = new Serializer();
-        return new Router(clientReposiory, serializer);
+        Controller controller = new Controller(clientReposiory, serializer);
+        return new Router(controller);
     }
 }
