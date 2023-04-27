@@ -5,7 +5,6 @@ import model.Client;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static model.AccountType.INDIVIDUAL;
 import static model.AccountType.LEGAL_ENTITY;
