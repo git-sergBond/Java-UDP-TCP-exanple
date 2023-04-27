@@ -1,4 +1,4 @@
-package tcp.service;
+package service;
 
 import model.Client;
 import repository.ClientReposiory;

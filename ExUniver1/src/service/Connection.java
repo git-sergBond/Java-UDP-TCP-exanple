@@ -1,4 +1,4 @@
-package tcp.service;
+package service;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

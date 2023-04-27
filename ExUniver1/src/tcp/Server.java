@@ -1,10 +1,10 @@
 package tcp;
 
 import repository.ClientReposiory;
-import tcp.service.Connection;
-import tcp.service.Controller;
-import tcp.service.Router;
-import tcp.service.Serializer;
+import service.Connection;
+import service.Controller;
+import service.Router;
+import service.Serializer;
 
 import java.io.IOException;
 import java.net.ServerSocket;

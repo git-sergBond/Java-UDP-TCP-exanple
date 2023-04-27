@@ -1,4 +1,4 @@
-package tcp.service;
+package service;
 
 public class Router {
 
