@@ -1,49 +1,35 @@
 package udp;
 
+import client.ClientDependencyInjection;
+import client.Sender;
+import service.API;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
+
+import static client.SettingsUtil.readHostFromCommandLineArguments;
 
 public class UDPClient {
 
-    private static final String GET_CLIENT_BY_ACCOUNT_ID = "GET /client/accountId/";
-
-    private static final String GET_ALL_CLIENTS = "GET /clients";
-
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("1) " + GET_ALL_CLIENTS);
-            System.out.println("2) " + GET_CLIENT_BY_ACCOUNT_ID);
-            System.out.println("Or type \"exit\" for escape program");
+        Sender sender = (String request) -> {
+            //If we run client and server on local machine.
+            //We will face with problem that we can not open same port twice for listening incoming messages to client.
+            //That's why i change 6789 (API.PORT) on 7777.
+            try (DatagramSocket socket = new DatagramSocket(7777)) {
+                String host = readHostFromCommandLineArguments(args);
+                sendMessage(socket, request, host, API.PORT);
 
-            String answer = scanner.nextLine();
-            if (answer.startsWith("exit")) {
-                break;
-            } else if (answer.startsWith("1")) {
-                send(GET_ALL_CLIENTS);
-            } else if (answer.startsWith("2")) {
-                System.out.println("Enter account ID:");
-                String accountId = scanner.nextLine();
-
-                send(GET_CLIENT_BY_ACCOUNT_ID + accountId);
+                receiveMessage(socket);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        }
-    }
-
-    private static void send(String request) {
-        try (DatagramSocket socket = new DatagramSocket(7777)) {
-
-            sendMessage(socket, request, "localhost", 6789);
-
-            receiveMessage(socket);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        };
+        ClientDependencyInjection clientApp = new ClientDependencyInjection(sender);
+        clientApp.run();
     }
 
     private static void sendMessage(DatagramSocket socket,
@@ -62,15 +48,11 @@ public class UDPClient {
         DatagramPacket response = new DatagramPacket(buffer, buffer.length);
         socket.receive(response);
 
-        printMessage(response);
+        String message = DatagramPacketUtil.getMessage(response);
+        printMessage(message);
     }
 
-    private static String getMessage(DatagramPacket datagram) {
-        return new String(datagram.getData(), 0, datagram.getLength(), StandardCharsets.UTF_8);
-    }
-
-    private static void printMessage(DatagramPacket datagram) {
-        String message = getMessage(datagram);
+    private static void printMessage(String message) {
         System.out.println("Received: " + message);
     }
 }

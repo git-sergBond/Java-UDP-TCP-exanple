@@ -2,7 +2,7 @@ package service;
 
 import repository.ClientReposiory;
 
-public class DependencyInjection {
+public class BackendDependencyInjection {
 
     public static Router dependencyInjection() {
         ClientReposiory clientReposiory = new ClientReposiory();

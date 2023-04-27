@@ -1,5 +1,6 @@
 package udp;
 
+import service.API;
 import service.Router;
 
 import java.io.IOException;
@@ -8,7 +9,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
 
-import static service.DependencyInjection.dependencyInjection;
+import static service.BackendDependencyInjection.dependencyInjection;
 
 public class UDPServer {
 
@@ -16,11 +17,11 @@ public class UDPServer {
 
     public static void main(String[] args) {
 
-        try (DatagramSocket socket = new DatagramSocket(6789)) {
+        try (DatagramSocket socket = new DatagramSocket(API.PORT)) {
             while (true) {
                 DatagramPacket request = listenRequest(socket);
 
-                String url = getMessage(request);
+                String url = DatagramPacketUtil.getMessage(request);
 
                 String response = router.route(url);
                 byte[] responseByte = response.getBytes(StandardCharsets.UTF_8);
@@ -48,9 +49,5 @@ public class UDPServer {
                 port
         );
         socket.send(reply);
-    }
-
-    private static String getMessage(DatagramPacket datagram) {
-        return new String(datagram.getData(), 0, datagram.getLength(), StandardCharsets.UTF_8);
     }
 }
