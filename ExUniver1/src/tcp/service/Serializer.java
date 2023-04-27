@@ -10,7 +10,9 @@ public class Serializer {
 
         int index = 0;
         for (Client client : clientArray) {
-            sb.append(serialize(client));
+            sb.append("\t");
+            String elementWithTabulation = serialize(client).replace("\n", "\n\t");
+            sb.append(elementWithTabulation);
 
             if (++index != clientArray.length) {
                 sb.append(",\n");
