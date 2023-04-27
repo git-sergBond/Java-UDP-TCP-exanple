@@ -22,7 +22,6 @@ public class Serializer {
 
         sb.append("\t\"amount\" : ");
         sb.append(client.getAmount());
-        sb.append("");
 
         sb.append("\n}");
         return sb.toString();
