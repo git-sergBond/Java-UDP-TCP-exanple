@@ -1,16 +1,15 @@
 package tcp;
 
-import repository.ClientReposiory;
 import service.Connection;
-import service.Controller;
 import service.Router;
-import service.Serializer;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
+import static service.DependencyInjection.dependencyInjection;
+
+public class TCPServer {
 
     private static final Router router = dependencyInjection();
 
@@ -23,12 +22,5 @@ public class Server {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private static Router dependencyInjection() {
-        ClientReposiory clientReposiory = new ClientReposiory();
-        Serializer serializer = new Serializer();
-        Controller controller = new Controller(clientReposiory, serializer);
-        return new Router(controller);
     }
 }

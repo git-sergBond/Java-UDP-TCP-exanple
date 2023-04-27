@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Client {
+public class TCPClient {
 
     private static final String GET_CLIENT_BY_ACCOUNT_ID = "GET /client/accountId/";
 

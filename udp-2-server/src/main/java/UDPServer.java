@@ -8,9 +8,6 @@ public class UDPServer {
     /**
      * Программа (сервер) создает сокет и обслуживает запросы клиента.
      *
-     * TODO java udp Address already in use: Cannot bind
-     * TODO https://www.youtube.com/watch?v=DMoz4VwwJgg
-     *
      * @param args
      */
     public static void main(String[] args) {
