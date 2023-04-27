@@ -1,6 +1,6 @@
 package client;
 
-import service.API;
+import backend.API;
 
 import java.util.Scanner;
 
@@ -28,7 +28,7 @@ public class ClientDependencyInjection {
                 System.out.println("Enter account ID:");
                 String accountId = scanner.nextLine();
 
-                sender.send(API.GET_CLIENT_BY_ACCOUNT_ID + accountId);
+                sender.send(API.buildGetClientByAccountId(accountId));
             }
         }
     }

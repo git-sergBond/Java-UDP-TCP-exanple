@@ -2,7 +2,7 @@ package udp;
 
 import client.ClientDependencyInjection;
 import client.Sender;
-import service.API;
+import backend.API;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

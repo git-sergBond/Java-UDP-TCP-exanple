@@ -1,14 +1,14 @@
 package tcp;
 
-import service.API;
-import service.Connection;
-import service.Router;
+import backend.API;
+import backend.Connection;
+import backend.Router;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import static service.BackendDependencyInjection.dependencyInjection;
+import static backend.BackendDependencyInjection.dependencyInjection;
 
 public class TCPServer {
 

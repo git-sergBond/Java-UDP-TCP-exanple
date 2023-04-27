@@ -1,7 +1,7 @@
 package udp;
 
-import service.API;
-import service.Router;
+import backend.API;
+import backend.Router;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -9,7 +9,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.charset.StandardCharsets;
 
-import static service.BackendDependencyInjection.dependencyInjection;
+import static backend.BackendDependencyInjection.dependencyInjection;
 
 public class UDPServer {
 
