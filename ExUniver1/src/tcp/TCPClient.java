@@ -29,7 +29,7 @@ public class TCPClient {
         };
 
         ClientDependencyInjection clientApp = new ClientDependencyInjection(sender);
-        clientApp.run();
+        clientApp.getApplication().run();
     }
 
     private static void printMessage(String message) {

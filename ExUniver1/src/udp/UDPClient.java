@@ -30,7 +30,7 @@ public class UDPClient {
             }
         };
         ClientDependencyInjection clientApp = new ClientDependencyInjection(sender);
-        clientApp.run();
+        clientApp.getApplication().run();
     }
 
     private static void sendMessage(DatagramSocket socket,
