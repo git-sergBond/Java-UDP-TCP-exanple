@@ -2,7 +2,7 @@ package client;
 
 public class ClientDependencyInjection {
 
-    private Sender sender;
+    private final Sender sender;
 
     public ClientDependencyInjection(Sender sender) {
         this.sender = sender;
