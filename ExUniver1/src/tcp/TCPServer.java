@@ -1,7 +1,6 @@
 package tcp;
 
 import backend.API;
-import backend.Connection;
 import backend.Router;
 
 import java.io.IOException;
